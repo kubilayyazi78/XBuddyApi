@@ -1,0 +1,6 @@
+@XBuddy.WebApi_HostAddress = http://localhost:5277
+
+GET {{XBuddy.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
