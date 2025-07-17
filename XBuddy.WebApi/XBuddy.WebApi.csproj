@@ -15,4 +15,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\XBuddy.Infra.SqlServer\XBuddy.Infra.SqlServer.csproj" />
+  </ItemGroup>
+
 </Project>
