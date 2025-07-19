@@ -12,6 +12,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\XBuddy.Application\XBuddy.Application.csproj" />
 		<ProjectReference Include="..\XBuddy.Domain\XBuddy.Domain.csproj" />
 	</ItemGroup>
 </Project>

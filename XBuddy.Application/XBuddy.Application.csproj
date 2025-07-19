@@ -10,7 +10,10 @@
     <Folder Include="Extensions\" />
     <Folder Include="Features\" />
     <Folder Include="Infrastucture\" />
-    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.42.0" />
   </ItemGroup>
 
 </Project>

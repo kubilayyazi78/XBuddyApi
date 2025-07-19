@@ -1,9 +1,10 @@
 ﻿using Microsoft.Azure.Cosmos;
+using XBuddy.Application.Repositories;
 using XBuddy.Infra.Cosmos.Extensions;
 
 namespace XBuddy.Infra.Cosmos.Repositories
 {
-    public class BaseCosmosRepository(CosmosClient cosmosClient, string dbName, string containerName)
+    public class BaseCosmosRepository(CosmosClient cosmosClient, string dbName, string containerName):ICosmosRepository
     {
         private readonly Container container = cosmosClient.GetContainer(dbName, containerName);
 

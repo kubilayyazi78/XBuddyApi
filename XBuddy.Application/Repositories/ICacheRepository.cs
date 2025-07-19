@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace XBuddy.Application.Repositories
+﻿namespace XBuddy.Application.Repositories
 {
-    internal interface ICacheRepository
+    public interface ICacheRepository:ICosmosRepository
     {
     }
 }

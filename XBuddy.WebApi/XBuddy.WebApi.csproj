@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\XBuddy.Infra.Cosmos\XBuddy.Infra.Cosmos.csproj" />
     <ProjectReference Include="..\XBuddy.Infra.SqlServer\XBuddy.Infra.SqlServer.csproj" />
   </ItemGroup>
 

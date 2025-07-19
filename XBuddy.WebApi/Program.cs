@@ -1,6 +1,7 @@
 using XBuddy.WebApi.Infrastructure.MultiTenant.Extensions;
 using XBuddy.Infra.SqlServer.Extensions;
 using XBuddy.WebApi.Infrastructure.MultiTenant.Services;
+using XBuddy.Infra.Cosmos.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,9 @@ builder.Services.AddInfraSqlServices(builder.Configuration.GetConnectionString("
 
     return service.GetUserId().ToString();
 });
+
+builder.Services.AddInfraCosmosService(builder.Configuration.GetConnectionString("CosmosDb"));
+
 var app = builder.Build();
 
 
