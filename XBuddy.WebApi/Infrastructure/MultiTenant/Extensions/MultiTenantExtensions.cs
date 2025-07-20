@@ -4,7 +4,7 @@ using XBuddy.WebApi.Infrastructure.Middleware;
 using XBuddy.WebApi.Infrastructure.MultiTenant.Options;
 using XBuddy.WebApi.Infrastructure.MultiTenant.Resolvers;
 using XBuddy.WebApi.Infrastructure.MultiTenant.Services;
-using XBuddy.WebApi.Services;
+using XBuddy.WebApi.Infrastructure.Services;
 
 namespace XBuddy.WebApi.Infrastructure.MultiTenant.Extensions
 {
@@ -15,7 +15,7 @@ namespace XBuddy.WebApi.Infrastructure.MultiTenant.Extensions
             services.AddHttpContextAccessor();
             services.AddSingleton<MultiTenantMiddleware>();
             services.AddScoped<IMultiTenantService, MultiTenantService>();
-            services.AddSingleton<ITenantMappingService, TenantMappingService>();
+            services.AddScoped<ITenantMappingService, TenantMappingService>();
             services.AddScoped<MultiTenantIdEndPointFilter>();
             var opt = new MultiTenancyOptions();
             options(opt);

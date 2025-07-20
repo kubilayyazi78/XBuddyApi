@@ -26,7 +26,6 @@ namespace XBuddy.Infra.SqlServer.Extensions
 
                 options.EnableSensitiveDataLogging(sensitiveDataLoggingEnabled: true);
             });
-
             services.AddSingleton(getTenantIdDelegate);
 
             return services;

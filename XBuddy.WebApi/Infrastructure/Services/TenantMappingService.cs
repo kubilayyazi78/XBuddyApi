@@ -1,14 +1,14 @@
 ﻿using XBuddy.Application.Services;
 using XBuddy.Infra.SqlServer.Context;
 
-namespace XBuddy.WebApi.Services
+namespace XBuddy.WebApi.Infrastructure.Services
 {
     public class TenantMappingService : ITenantMappingService
     {
         private TenantMappingContext context;
-        private readonly ServiceProvider serviceProvider;
+        private readonly IServiceProvider serviceProvider;
         private Dictionary<string, Guid> map;
-        public TenantMappingService(ServiceProvider serviceProvider)
+        public TenantMappingService(IServiceProvider serviceProvider)
         {
             this.serviceProvider = serviceProvider;
             LoadMap();

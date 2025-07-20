@@ -2,6 +2,8 @@ using XBuddy.WebApi.Infrastructure.MultiTenant.Extensions;
 using XBuddy.Infra.SqlServer.Extensions;
 using XBuddy.WebApi.Infrastructure.MultiTenant.Services;
 using XBuddy.Infra.Cosmos.Extensions;
+using XBuddy.WebApi.Infrastructure.EndPoints;
+using XBuddy.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +18,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMultiTenancy();
-builder.Services.AddInfraSqlServices(builder.Configuration.GetConnectionString("SqlServer"),(sp)=>
+builder.Services.AddApplicationServices();
+builder.Services.AddInfraSqlServices(builder.Configuration.GetConnectionString("SqlServer"), (sp) =>
 {
     var service = sp.GetRequiredService<IMultiTenantService>();
 
@@ -24,7 +27,10 @@ builder.Services.AddInfraSqlServices(builder.Configuration.GetConnectionString("
 });
 
 builder.Services.AddInfraCosmosService(builder.Configuration.GetConnectionString("CosmosDb"));
-
+builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(opt =>
+{
+    opt.SerializerOptions.TypeInfoResolver = XBuddy.WebApi.Infrastructure.SourceGenerators.JsonSerializerContext.Default;
+});
 var app = builder.Build();
 
 
@@ -40,6 +46,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.RegisterMappings();
 
 app.UseMultiTenancy();
 
