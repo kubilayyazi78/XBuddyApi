@@ -1,5 +1,5 @@
 ﻿
-namespace XBuddy.WebApi.Services
+namespace XBuddy.Application.Services
 {
     public interface ITenantMappingService
     {

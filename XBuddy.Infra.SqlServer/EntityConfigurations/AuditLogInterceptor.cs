@@ -14,9 +14,9 @@ namespace XBuddy.Infra.SqlServer.EntityConfigurations
             var entries = eventData.Context.ChangeTracker.Entries().ToList();
             var auditLogs = eventData.Context.ChangeTracker.Entries()
                 .Where(x => x.Entity is not AuditLogEntity)
-                .Where(y => y.State == Microsoft.EntityFrameworkCore.EntityState.Added
-                || y.State == Microsoft.EntityFrameworkCore.EntityState.Modified
-                || y.State == Microsoft.EntityFrameworkCore.EntityState.Deleted);
+                .Where(y => y.State == EntityState.Added
+                || y.State == EntityState.Modified
+                || y.State == EntityState.Deleted);
 
 
             var auditLogEntities = new List<AuditLogEntity>();

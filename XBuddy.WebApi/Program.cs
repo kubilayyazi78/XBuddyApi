@@ -5,6 +5,10 @@ using XBuddy.Infra.Cosmos.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+#if DEBUG
+builder.Configuration.AddJsonFile("appsettings.Development.json", optional: true);
+#endif
+
 // Add services to the container.
 
 builder.Services.AddControllers();

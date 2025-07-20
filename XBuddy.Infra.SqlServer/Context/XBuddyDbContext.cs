@@ -25,5 +25,10 @@ namespace XBuddy.Infra.SqlServer.Context
 
             base.OnModelCreating(modelBuilder);
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.AddInterceptors(new AuditLogInterceptor());
+            base.OnConfiguring(optionsBuilder);
+        }
     }
 }

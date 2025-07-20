@@ -1,4 +1,4 @@
-﻿using XBuddy.WebApi.Services;
+﻿using XBuddy.Application.Services;
 
 namespace XBuddy.WebApi.Infrastructure.MultiTenant.Services
 {

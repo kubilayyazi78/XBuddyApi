@@ -1,4 +1,5 @@
-﻿using XBuddy.Infra.SqlServer.Context;
+﻿using XBuddy.Application.Services;
+using XBuddy.Infra.SqlServer.Context;
 
 namespace XBuddy.WebApi.Services
 {
